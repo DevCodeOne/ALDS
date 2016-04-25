@@ -1,7 +1,7 @@
 
 public class QueueAsArray implements Queue {
 
-	public static final int QUEUE_SIZE = 20;
+	public static final int QUEUE_SIZE = 100;
 	
 	Object object[]; 
 	int len = 0;

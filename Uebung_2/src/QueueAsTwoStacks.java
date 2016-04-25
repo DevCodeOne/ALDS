@@ -37,7 +37,6 @@ public class QueueAsTwoStacks implements Queue {
 			e.printStackTrace();
 			throw new QueueUnderflowException();
 		}
-		
 		return this;
 	}
 
