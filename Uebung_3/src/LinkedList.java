@@ -135,7 +135,7 @@ public class LinkedList {
 	}
 	
 	private void delete_rec(ListNodeSL prev, int key) {
-		if (prev.getNext() == null) 
+		if (prev != null && prev.getNext() == null) // wenn prev auf null checken
 			return;
 		
 		if (prev.getNext().getKey() == key) {
