@@ -13,8 +13,8 @@ public class ListTest {
         int choice = -1;
         
         do {
-            if(choice==-1) {
-                System.out.println();
+            if (choice == -1) { 
+            	System.out.println();
                 System.out.println(" 0. Programm beenden");
                 System.out.println(" 1. Liste löschen");
                 System.out.println(" 2. Liste ausgeben (iterativ)");
