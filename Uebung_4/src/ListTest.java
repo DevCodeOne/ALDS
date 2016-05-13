@@ -11,14 +11,18 @@ public class ListTest {
         list.insertLast(10);
         list.insertLast(12);
        
+        list.printReversed(list.getFirst());
+        list.reverse();
+        System.out.println("");
+        list.printReversed(list.getFirst());
         
-        System.out.println("it : " + list.getMinIter());
+        /*System.out.println("it : " + list.getMinIter());
         System.out.println("rec : " + list.getMinRec(list.getFirst()));
         list.printReversed(list.getFirst());
         System.out.println();
         list.reverse();
         list.printReversed(list.getFirst());
-        System.out.println();
+        System.out.println();*/
     }
 
 }

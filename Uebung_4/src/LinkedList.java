@@ -172,7 +172,6 @@ public class LinkedList {
 		System.out.print(sl.getKey() + " ");
 	}
 	
-	// TODO implement
 	public void reverse() {
 		if (isEmpty()) return;
 		
