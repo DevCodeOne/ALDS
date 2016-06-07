@@ -37,9 +37,7 @@ public class List {
                 int res = L[i].compareTo(L[j]) * (aufsteigend ? 1 : -1);
                 if (res > 0) {
                     Element tmp = L[j];
-                    for (int k = j; k > i; k--) {
-                        L[k] = L[k - 1];
-                    }
+                    L[j] = L[i];
                     L[i] = tmp;
                 }
             }

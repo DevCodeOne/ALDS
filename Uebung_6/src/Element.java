@@ -113,7 +113,5 @@ public class Element implements Comparable {
                 return res; // alternativ auch einfach break
         }
         return res;
-
-
     }
 }

@@ -4,6 +4,7 @@ import java.io.*;
 
 
 public class SortTest {
+
     private static String[] vName = {"Bernd", "Natalie", "Kathrin", "Martin", "Michael", "Thomas", "Judith", "Ullrich", "Tina", "Udo", "Rolf", "Klaus", "Fritz", "Sebb"};
     private static String[] nName = {"Weber", "Brot", "Schiwy", "Bunke", "Braun", "Schmidt", "Schmid", "Schmit", "Schmitt", "Weber", "Meier", "Metzger", "Mueller", "Rössler"};
     private static String[] hobby = {"Surfen", "Schwimmen", "Reiten", "Fußball", "Lesen", "Malen", "Kung-Fu", "Kegeln", "Tennis", "Laufen", "Hallen-Halma", "Tanzen", "Angeln"};
@@ -43,6 +44,8 @@ public class SortTest {
             }
 
             switch (choice) {
+                case 0:
+                    break;
                 case 1:
                     int size;
 
@@ -85,29 +88,40 @@ public class SortTest {
                 case 42:
                     StringTokenizer st;
                     int[] sortOrder;
+
                     System.out.print("max " + Element.getNumberOfAttributes() + "-Tupel ohne Wiederholungen aus ");
+
                     for (int i = 0; i < Element.getNumberOfAttributes(); i++)
                         System.out.print(i + "(" + Element.getAttributeNames()[i] + ") ");
+
                     System.out.println();
 
                     try {   // read a line and convert it to integer values
                         input = buffer.readLine().trim();
                         st = new StringTokenizer(input);
+
                         // sortOrder-Tupel mindestens 1, maximal #Attribute lang
+
                         if ((st.countTokens() < 1) || (st.countTokens() > Element.getNumberOfAttributes()))
                             throw new Exception();
+
                         sortOrder = new int[st.countTokens()];
+
                         for (int i = 0; i < sortOrder.length; i++) {
                             sortOrder[i] = Integer.parseInt(st.nextToken());
+
                             // jeder sort-Order Eintrag gr��ergleich 0 und kleiner #Attribute
                             if ((sortOrder[i] < 0) || (sortOrder[i] >= Element.getNumberOfAttributes()))
+
                                 throw new Exception();
                         }
+
                         // Doubletten erkennen
                         for (int i = 0; i < sortOrder.length; i++)
                             for (int j = i + 1; j < sortOrder.length; j++)
                                 if (sortOrder[i] == sortOrder[j])
                                     throw new Exception();
+
                     } catch (Exception e) {
                         sortOrder = new int[]{0};
                     }
@@ -115,7 +129,6 @@ public class SortTest {
                     Element.setSortOrder(sortOrder);
                     break;
                 case 43:
-                    // aufsteigend^=true;
                     aufsteigend = !aufsteigend;
                     System.out.println("jetzt " + (aufsteigend ? "aufsteigende" : "absteigende") + " Sortierung");
                     break;
