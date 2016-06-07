@@ -15,8 +15,10 @@ public class Tree {
 		root.getRightChild().setRightChild(new TreeNode('e', null, null));
 		
 		root.getLeftChild().setLeftChild(new TreeNode('a', null, null));
+		root.getLeftChild().getLeftChild().setLeftChild(new TreeNode('_', null, null));
 		root.getLeftChild().setRightChild(new TreeNode('*', null, null));
 		root.getLeftChild().getRightChild().setLeftChild(new TreeNode('b', null, null));
+		root.getLeftChild().getRightChild().getLeftChild().setRightChild(new TreeNode('!', null, null));
 		root.getLeftChild().getRightChild().setRightChild(new TreeNode('^', null, null));
 		root.getLeftChild().getRightChild().getRightChild().setLeftChild(new TreeNode('c', null, null));
 		root.getLeftChild().getRightChild().getRightChild().setRightChild(new TreeNode('2', null, null));
@@ -39,7 +41,7 @@ public class Tree {
 		inOrderIterHelp(root);
 		System.out.println();
 	}
-	
+
 	private void inOrderIterHelp(TreeNode current) throws Exception {
 		if (current == null) return;
 
@@ -54,13 +56,15 @@ public class Tree {
 			if (stack.empty())
 				break;
 
-			current = (TreeNode) stack.top();
-			System.out.print(current.getKey() + " ");
-			stack.pop();
-
-			while (current.getRightChild() == null && !stack.empty()) {
-				System.out.println(current.getKey() + " ");
+			if (current.getRightChild() == null) {
 				current = (TreeNode) stack.top();
+				System.out.print(current.getKey() + " ");
+				stack.pop();
+			}
+
+			while (current.getRightChild() == null) {
+				current = (TreeNode) stack.top();
+				System.out.print(current.getKey() + " ");
 				stack.pop();
 			}
 
