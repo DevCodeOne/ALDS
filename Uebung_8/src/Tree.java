@@ -19,8 +19,7 @@ public class Tree {
     private int heightCount(TreeNode current) {
         if (current != null)
             return 1 + Math.max(heightCount(current.getLeftChild()), heightCount(current.getRightChild()));
-        else
-            return 0;
+        return 0;
     }
 
     public int getNumberOfNodes() {
@@ -65,7 +64,7 @@ public class Tree {
     }
 
     public int getMinLeafLevel() {
-        return getMinLeafLevel(root, 0);
+        return getMinLeafLevel(root, 1);
     }
 
     private int getMinLeafLevel(TreeNode current, int level) {
@@ -80,7 +79,7 @@ public class Tree {
     }
 
     public int getMaxLeafLevel() {
-        return getMaxLeafLevel(root, 0);
+        return getMaxLeafLevel(root, 1);
     }
 
     private int getMaxLeafLevel(TreeNode current, int level) {
@@ -95,7 +94,7 @@ public class Tree {
     }
 
     public int getNumberOfRootKey() {
-        return getNumberOfRootKey(root);
+        return getNumberOfRootKey(root) - 1;
     }
 
     private int getNumberOfRootKey(TreeNode current) {
