@@ -1,3 +1,4 @@
+import org.jetbrains.annotations.Contract;
 
 public class Tree {
 
@@ -137,10 +138,9 @@ public class Tree {
     }
 
     private boolean isAVLHelper(TreeNode current) {
-        if (current != null && (current.getLeftChild() != null || current.getRightChild() != null)) { //
-            int dif = heightCount(current.getLeftChild()) - heightCount(current.getRightChild());
-            return Math.abs(dif) < 2 && isAVLHelper(current.getLeftChild()) && isAVLHelper(current.getRightChild());
-        }
-        return true;
+        if (current == null) return true;
+
+        boolean diff_one = Math.abs(heightCount(current.getLeftChild()) - heightCount(current.getRightChild())) < 2;
+        return diff_one && isAVLHelper(current.getLeftChild()) && isAVLHelper(current.getRightChild());
     }
 }
